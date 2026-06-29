@@ -1,0 +1,321 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoLearn - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">EcoLearn</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="challenges.html">Challenges</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Environmental Education Platform for Schools and Colleges</h1>
+    <p>Learn, test, and practice eco-friendly habits through simple lessons and challenges.</p>
+    <a class="btn" href="lessons.html">Start Learning</a>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <h3>Learn</h3>
+      <p>Study pollution, recycling, climate change, and sustainability.</p>
+    </div>
+    <div class="card">
+      <h3>Quiz</h3>
+      <p>Check your understanding with a short interactive quiz.</p>
+    </div>
+    <div class="card">
+      <h3>Act</h3>
+      <p>Complete eco-challenges and earn points.</p>
+    </div>
+  </section>
+</body>
+</html>
+lessons.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoLearn - Lessons</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">EcoLearn</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="challenges.html">Challenges</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h2>Lessons</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Pollution</h3>
+        <p>Learn about air, water, and land pollution and how to reduce them.</p>
+      </div>
+      <div class="card">
+        <h3>Recycling</h3>
+        <p>Understand how to separate waste and reuse materials effectively.</p>
+      </div>
+      <div class="card">
+        <h3>Climate Change</h3>
+        <p>Discover how human actions affect the climate and environment.</p>
+      </div>
+      <div class="card">
+        <h3>Water Conservation</h3>
+        <p>Save water at home, school, and college using simple methods.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+quiz.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoLearn - Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">EcoLearn</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="challenges.html">Challenges</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h2>Quick Quiz</h2>
+
+    <div class="card quiz-box">
+      <p>1. Which of these is recyclable?</p>
+      <label><input type="radio" name="q1" value="wrong"> Banana peel</label>
+      <label><input type="radio" name="q1" value="correct"> Plastic bottle</label>
+      <label><input type="radio" name="q1" value="wrong"> Food waste</label>
+
+      <p>2. What helps save water?</p>
+      <label><input type="radio" name="q2" value="correct"> Turning off the tap while brushing</label>
+      <label><input type="radio" name="q2" value="wrong"> Leaving tap open</label>
+      <label><input type="radio" name="q2" value="wrong"> Washing one item at a time</label>
+
+      <p>3. Which gas is linked to climate change?</p>
+      <label><input type="radio" name="q3" value="correct"> Carbon dioxide</label>
+      <label><input type="radio" name="q3" value="wrong"> Oxygen</label>
+      <label><input type="radio" name="q3" value="wrong"> Helium</label>
+
+      <button class="btn" onclick="checkQuiz()">Submit Quiz</button>
+      <p id="result"></p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+challenges.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoLearn - Challenges</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">EcoLearn</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="challenges.html">Challenges</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h2>Eco-Challenges</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Challenge 1</h3>
+        <p>Bring a reusable water bottle for 5 days.</p>
+        <button class="btn small" onclick="addPoints(10)">Complete</button>
+      </div>
+      <div class="card">
+        <h3>Challenge 2</h3>
+        <p>Separate wet and dry waste at home for one week.</p>
+        <button class="btn small" onclick="addPoints(10)">Complete</button>
+      </div>
+      <div class="card">
+        <h3>Challenge 3</h3>
+        <p>Plant one tree or report a planted sapling.</p>
+        <button class="btn small" onclick="addPoints(15)">Complete</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+dashboard.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoLearn - Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">EcoLearn</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="challenges.html">Challenges</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <h2>Student Dashboard</h2>
+    <div class="card">
+      <h3>Total Points</h3>
+      <p id="points">0</p>
+    </div>
+    <div class="card">
+      <h3>Progress</h3>
+      <p>Complete lessons, quizzes, and challenges to improve your score.</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+styles.css
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4fff4;
+  color: #1f3b1f;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #2e7d32;
+  color: white;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(rgba(46,125,50,0.8), rgba(46,125,50,0.8)), url('https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1200&q=60');
+  background-size: cover;
+  color: white;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #43a047;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.small {
+  margin-top: 10px;
+}
+
+.page {
+  padding: 30px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.quiz-box label {
+  display: block;
+  margin: 8px 0;
+}
+script.js
+let points = 0;
+
+function updateDashboard() {
+  const pointBox = document.getElementById("points");
+  if (pointBox) {
+    pointBox.textContent = points;
+  }
+}
+
+function addPoints(value) {
+  points += value;
+  updateDashboard();
+  alert("Great job! You earned " + value + " points.");
+}
+
+function checkQuiz() {
+  let score = 0;
+  const answers = ["q1", "q2", "q3"];
+
+  answers.forEach(q => {
+    const selected = document.querySelector(`input[name="${q}"]:checked`);
+    if (selected && selected.value === "correct") {
+      score++;
+    }
+  });
+
+  points += score * 5;
+  document.getElementById("result").textContent =
+    "You scored " + score + "/3. You earned " + (score * 5) + " points.";
+  updateDashboard();
+}
