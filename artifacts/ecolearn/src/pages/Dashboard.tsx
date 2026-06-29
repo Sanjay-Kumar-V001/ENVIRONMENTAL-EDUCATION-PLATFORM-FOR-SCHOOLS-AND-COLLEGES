@@ -7,14 +7,20 @@ const challengeList = [
   { id: 1, label: "Reusable Bottle (5 days)", points: 10 },
   { id: 2, label: "Waste Separation (1 week)", points: 10 },
   { id: 3, label: "Plant a Tree", points: 15 },
+  { id: 4, label: "No Single-Use Plastic (1 week)", points: 10 },
+  { id: 5, label: "Energy Saver (5 days)", points: 10 },
+  { id: 6, label: "Walk or Cycle (3 trips)", points: 10 },
+  { id: 7, label: "Start Composting (2 weeks)", points: 15 },
 ];
 
-const MAX_POINTS = 15 + 35; // quiz max 15 + challenge max 35 = 50
+const QUIZ_MAX = 10 * 3;   // 10 questions × 3 pts
+const CHALLENGE_MAX = 80;  // sum of all challenge points
+const MAX_POINTS = QUIZ_MAX + CHALLENGE_MAX; // 110
 
 function tier(pts: number) {
-  if (pts >= 40) return { label: "Eco Champion", color: "text-yellow-600", bg: "bg-yellow-50 border-yellow-200" };
-  if (pts >= 20) return { label: "Green Learner", color: "text-green-600", bg: "bg-green-50 border-green-200" };
-  if (pts >= 5) return { label: "Eco Starter", color: "text-blue-600", bg: "bg-blue-50 border-blue-200" };
+  if (pts >= 80) return { label: "Eco Champion", color: "text-yellow-600", bg: "bg-yellow-50 border-yellow-200" };
+  if (pts >= 40) return { label: "Green Learner", color: "text-green-600", bg: "bg-green-50 border-green-200" };
+  if (pts >= 10) return { label: "Eco Starter", color: "text-blue-600", bg: "bg-blue-50 border-blue-200" };
   return { label: "Just Beginning", color: "text-muted-foreground", bg: "bg-muted border-border" };
 }
 
@@ -27,8 +33,10 @@ export default function Dashboard() {
   const { points, quizScore, quizCompleted, completedChallenges } = useEco();
   const { label, color, bg } = tier(points);
   const pct = Math.min(100, Math.round((points / MAX_POINTS) * 100));
-  const challengePts = challengeList.filter((c) => completedChallenges.has(c.id)).reduce((s, c) => s + c.points, 0);
-  const quizPts = (quizScore ?? 0) * 5;
+  const challengePts = challengeList
+    .filter((c) => completedChallenges.has(c.id))
+    .reduce((s, c) => s + c.points, 0);
+  const quizPts = (quizScore ?? 0) * 3;
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-12">
@@ -52,7 +60,7 @@ export default function Dashboard() {
             icon: ClipboardCheck,
             label: "Quiz Points",
             value: quizPts,
-            sub: quizCompleted ? `${quizScore}/3 correct` : "Not taken",
+            sub: quizCompleted ? `${quizScore}/10 correct` : "Not taken",
             iconClass: "text-blue-500",
             bg: "bg-blue-50",
           },
@@ -60,7 +68,7 @@ export default function Dashboard() {
             icon: Flame,
             label: "Challenge Points",
             value: challengePts,
-            sub: `${completedChallenges.size}/3 done`,
+            sub: `${completedChallenges.size}/7 done`,
             iconClass: "text-orange-500",
             bg: "bg-orange-50",
           },
@@ -109,12 +117,13 @@ export default function Dashboard() {
         <div className="flex items-center gap-2 mb-4">
           <BookOpen className="w-5 h-5 text-primary" />
           <h3 className="font-bold text-foreground">Quiz</h3>
+          <span className="ml-auto text-xs text-muted-foreground">30 pts max</span>
         </div>
         {quizCompleted ? (
           <div className="flex items-center gap-3">
             <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
             <div>
-              <p className="text-sm font-medium text-foreground">Completed — {quizScore}/3 correct</p>
+              <p className="text-sm font-medium text-foreground">Completed — {quizScore}/10 correct</p>
               <p className="text-xs text-muted-foreground">You earned {quizPts} points</p>
             </div>
           </div>
@@ -137,6 +146,7 @@ export default function Dashboard() {
         <div className="flex items-center gap-2 mb-4">
           <Flame className="w-5 h-5 text-primary" />
           <h3 className="font-bold text-foreground">Challenges</h3>
+          <span className="ml-auto text-xs text-muted-foreground">80 pts max</span>
         </div>
         <div className="space-y-3">
           {challengeList.map((ch) => {
@@ -158,7 +168,7 @@ export default function Dashboard() {
             );
           })}
         </div>
-        {completedChallenges.size < 3 && (
+        {completedChallenges.size < challengeList.length && (
           <div className="mt-4 pt-4 border-t border-border">
             <Link
               href="/challenges"

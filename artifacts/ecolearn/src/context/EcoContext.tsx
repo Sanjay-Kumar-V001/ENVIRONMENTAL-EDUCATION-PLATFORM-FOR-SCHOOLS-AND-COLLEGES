@@ -66,7 +66,7 @@ export function EcoProvider({ children }: { children: ReactNode }) {
     if (quizCompleted) return;
     setQuizScore(score);
     setQuizCompleted(true);
-    addPoints(score * 5);
+    addPoints(score * 3);
   }
 
   return (

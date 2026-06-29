@@ -119,9 +119,9 @@ export default function Home() {
       <section className="bg-[hsl(140,40%,14%)] text-white py-12">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-3 gap-8 text-center">
           {[
-            { value: "4", label: "Lesson Topics" },
-            { value: "3", label: "Quiz Questions" },
-            { value: "35", label: "Points to Earn" },
+            { value: "8", label: "Lesson Topics" },
+            { value: "10", label: "Quiz Questions" },
+            { value: "110", label: "Points to Earn" },
           ].map(({ value, label }) => (
             <div key={label}>
               <div className="text-4xl font-bold text-[hsl(78,70%,65%)]">{value}</div>
