@@ -55,8 +55,7 @@ The goal of this project is to spread awareness about environmental protection a
 ## Developer
 Name: Your Name  
 Department: CSE / IT / ECE / CCE / CSBS / AIML / AIDS  
-College: Your College Name
-
+College: Your College 
 
 
 https://attached-assets--sanjaykumar917a.replit.app
